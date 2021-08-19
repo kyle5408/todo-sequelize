@@ -18,23 +18,27 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/detail', (req, res) => {
-  res.render('detail')
-})
-
-app.get('/edit', (req, res) => {
-  res.render('edit')
-})
-
-app.get('/login', (req, res) => {
-  res.render('login')
-})
-
-app.get('/new', (req, res) => {
+app.get('/todos/new', (req, res) => {
   res.render('new')
 })
 
-app.get('/register', (req, res) => {
+app.post('/todos', (req, res) => {
+  res.render('index')
+})
+
+app.get('/todos/detail', (req, res) => {
+  res.render('detail')
+})
+
+app.get('/todos/edit', (req, res) => {
+  res.render('edit')
+})
+
+app.get('/users/login', (req, res) => {
+  res.render('login')
+})
+
+app.get('/users/register', (req, res) => {
   res.render('register')
 })
 
