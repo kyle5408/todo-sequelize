@@ -3,6 +3,9 @@ const exhbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverrode = require('method-override')
 const bcrypt = require('bcryptjs')
+const db = require('./models')
+const Todo = db.Todo
+const User = db.User
 
 const app = express()
 const PORT = 3000
@@ -40,6 +43,12 @@ app.get('/users/login', (req, res) => {
 
 app.get('/users/register', (req, res) => {
   res.render('register')
+})
+
+app.post('/users/register', (req, res) => {
+  const { name, email, password, confirmPassword } = req.body
+  User.create({ name, email, password })
+    .then(user => res.redirect('/'))
 })
 
 app.listen(PORT, () => {
