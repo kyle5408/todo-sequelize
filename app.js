@@ -8,7 +8,7 @@ const app = express()
 const PORT = 3000
 
 // 引用套件
-app.engine('hbs', exhbs({ defaultLayot: 'main', extname: '.hbs'}))
+app.engine('hbs', exhbs({ defaultLayot: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverrode('_method'))
@@ -18,6 +18,26 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.listen(PORT,() => {
+app.get('/detail', (req, res) => {
+  res.render('detail')
+})
+
+app.get('/edit', (req, res) => {
+  res.render('edit')
+})
+
+app.get('/login', (req, res) => {
+  res.render('login')
+})
+
+app.get('/new', (req, res) => {
+  res.render('new')
+})
+
+app.get('/register', (req, res) => {
+  res.render('register')
+})
+
+app.listen(PORT, () => {
   console.log(`APP is running on http://localhost:${PORT}`)
 })
