@@ -4,7 +4,6 @@ const db = require('../../models')
 const Todo = db.Todo
 
 router.get('/new', (req, res) => {
-  console.log(req.user.id)
   res.render('new')
 })
 

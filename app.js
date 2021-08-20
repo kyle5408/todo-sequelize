@@ -5,10 +5,16 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const flash = require('connect-flash')
 const usePassport = require('./config/passport')
-const routes = require('./routes')
+
+
+//判斷執行環境，決定是否使用環境變數
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const app = express()
-const PORT = 3000
+const routes = require('./routes')
+const PORT = process.env.PORT
 
 // 引用套件
 app.engine('hbs', exhbs({ defaultLayot: 'main', extname: '.hbs' }))
@@ -16,7 +22,7 @@ app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(session({
-  secret: 'ThisIsMySecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
