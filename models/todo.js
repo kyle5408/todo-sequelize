@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   Todo.init({
     name: DataTypes.STRING,
-    isDone: DataTypes.BOOLEAN
+    isDone: DataTypes.BOOLEAN,
+    userId: DataTypes.NUMBER
   }, {
     sequelize,
     modelName: 'Todo',

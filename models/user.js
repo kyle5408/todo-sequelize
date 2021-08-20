@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.associate = function (models) {
-        User.hasMany(model.Todo)
+        User.hasMany(models.Todo)
       }
     }
   };
