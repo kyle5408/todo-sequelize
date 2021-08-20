@@ -22,11 +22,12 @@
 9.  使用者可以刪除待辦事項
 
 <br>
-https://imgur.com/koSRK9w
 ## 畫面預覽 Preview
-![登入](https://imgur.com/koSRK9w)
 
-![首頁](https://imgur.com/0QtESA5)
+![登入](https://i.imgur.com/koSRK9w.png)
+
+
+![首頁](https://i.imgur.com/0QtESA5.png)
 
 <br>
 
