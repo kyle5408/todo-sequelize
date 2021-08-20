@@ -9,6 +9,11 @@ router.get('/login', (req, res) => {
   res.render('login')
 })
 
+router.get('/logout', (req, res) => {
+  req.logout()
+  res.render('login')
+})
+
 // 加入 middleware，驗證 reqest 登入狀態
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
@@ -21,7 +26,6 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
-  console.log(req.body)
   User.findOne({ where: { email } })
     .then(user => {
       if (user) {
